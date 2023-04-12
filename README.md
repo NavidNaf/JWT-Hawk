@@ -11,7 +11,7 @@ JWT-Hawk is a Python tool used for decoding JWT tokens by trying multiple secret
 - `pyfiglet`
 
 ## Usage
-1. Clone the repository: `git clone https://github.com/DL28/JWT-Hawk.git`
+1. Clone the repository: `git clone https://github.com/NavidNaf/JWT-Hawk`
 2. Change the directory: `cd JWT-Hawk`
 3. Install the dependencies: `pip3 install -r requirements.txt`
 4. Create a file with the list of secrets that you want to try.
