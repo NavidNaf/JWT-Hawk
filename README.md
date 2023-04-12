@@ -27,4 +27,4 @@ JWT-Hawk is a Python tool used for decoding JWT tokens by trying multiple secret
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 
-Contributions are welcome! If you find a bug or have an idea for a new feature, please create an issue or submit a pull request.
+Contributions are welcome! If you find a bug or have an idea for a new feature, please create an issue or submit a pull request. 
