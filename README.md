@@ -1,7 +1,5 @@
 # JWT-Hawk
 
-![JWT-Hawk](jwt-hack.png)
-
 ## Description
 JWT-Hawk is a Python tool used for decoding JWT tokens by trying multiple secrets from a provided list. It extracts and prints the header values and payload values (if the secret matches) of a given JWT token. 
 
