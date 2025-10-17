@@ -5,11 +5,16 @@
 ## Description
 JWT-Hawk is a Python tool used for decoding JWT tokens by trying multiple secrets from a provided list. It extracts and prints the header values and payload values (if the secret matches) of a given JWT token. 
 
-### Enhancements in Version 2.0:
-- Added support for processing JWT tokens with 'alg' set to 'none' using the [none] mode.
-- Implemented a brute-force decoding mode that allows users to attempt to decode JWT tokens using a list of secrets.
-- Improved user interaction by providing clear usage instructions and examples.
-- Updated dependencies to use `colorama` and `rich` for better console output.
+### Release Notes
+| Version | Change Type | Details |
+| --- | --- | --- |
+| 2.2 | Enhancement | Added a `--token` CLI option so brute-force runs can supply JWTs non-interactively. |
+| 2.2 | Enhancement | Ignores blank secrets and trims whitespace once to speed up brute-force wordlists. |
+| 2.1 | Enhancement | Brute-force mode now auto-detects the JWT header’s HMAC algorithm and falls back to common HS variants when the header is silent. |
+| 2.1 | Bug Fix | Ignores `exp`, `nbf`, and `iat` claim failures during brute force and reports malformed headers instead of aborting. |
+| 2.0 | Enhancement | Added the `none` mode for processing tokens with the `alg` header set to `none`. |
+| 2.0 | Enhancement | Introduced the brute-force mode for testing multiple shared secrets. |
+| 2.0 | Enhancement | Improved console UX and project documentation, and adopted `colorama`/`rich` for styled output. |
 
 ## Dependencies
 - `jwt`
@@ -21,19 +26,25 @@ JWT-Hawk is a Python tool used for decoding JWT tokens by trying multiple secret
 2. Change the directory: `cd JWT-Hawk`
 3. Install the dependencies: `pip3 install -r requirements.txt`
 4. Create a file with the list of secrets that you want to try.
-5. Run the script: `python3 jwt_hawk.py <mode> [options]`
+5. Run the script: `python3 jwt-hawk.py <mode> [options]`
    - `<mode>` can be:
-     - [none](cci:1://file:///Users/navidfazle.rabbi/Documents/Project/smithy-visualizer/JWT-Hawk/jwt-hawk.py:24:0-40:42): Process a JWT token with 'alg' set to 'none'.
+     - `none`: Process a JWT token with 'alg' set to 'none'.
      - `brute`: Attempt to brute-force decode a JWT token using a list of secrets.
-   - For brute mode, provide the secrets file as an additional argument: `python3 jwt_hawk.py brute <secrets_file>`
-   - For none mode, enter the JWT token when prompted: `python3 jwt_hawk.py none`
+   - For brute mode, provide the secrets file as an additional argument: `python3 jwt-hawk.py brute <secrets_file>`
+   - Optionally supply the JWT inline to brute mode: `python3 jwt-hawk.py brute <secrets_file> --token <jwt>`
+   - For none mode, enter the JWT token when prompted: `python3 jwt-hawk.py none`
 6. The tool will attempt to decode the JWT token using the specified method.
 
 ## Examples
 - To process a JWT token with 'alg' set to 'none':
   ```bash
-  python3 jwt_hawk.py none
+  python3 jwt-hawk.py none
+  ```
 - To brute-force decode a JWT token using a list of secrets:
   ```bash
-  python3 jwt_hawk.py brute sample-secrets.txt
-
+  python3 jwt-hawk.py brute sample-secrets.txt
+  ```
+- To brute-force decode non-interactively:
+  ```bash
+  python3 jwt-hawk.py brute sample-secrets.txt --token <jwt>
+  ```
