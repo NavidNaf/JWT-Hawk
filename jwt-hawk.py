@@ -1,17 +1,19 @@
 import jwt
 import sys
+import base64
+import json
 import colorama
 from colorama import Fore
 from rich.console import Console
 from rich.text import Text
-import base64
-import json
 
 # Initialize colorama
 colorama.init(autoreset=True)
 
 # Create a Console instance for rich
 console = Console()
+
+AUTHOR = "RedHawks Cyber Research Tool by DL28"
 
 def print_banner():
     """Prints the banner for the JWT-Hawk tool."""
@@ -20,7 +22,7 @@ def print_banner():
     console.print(banner, style="bold cyan on black")  # Print with background for more emphasis
     console.print(Text("A tool for decoding JWT tokens using a list of secrets.", style="yellow"))
     console.print(Text("Version 2.0", style="magenta"))
-    console.print(Text("RedHawks Cyber Research Tool by DL28", style="white"))
+    console.print(Text(AUTHOR, style="white"))
     print("\n")
 
 def handle_none(jwt_token):
