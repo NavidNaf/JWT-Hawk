@@ -9,7 +9,6 @@ JWT-Hawk is a Python tool used for decoding JWT tokens by trying multiple secret
 | Version | Change Type | Details |
 | --- | --- | --- |
 | 2.3 | Enhancement | Added a standalone Tkinter GUI (`gui/jwt_hawk_gui.py`) covering the `none` and `brute` workflows with inline status output and secrets-file picker. |
-| 2.3 | Enhancement | Centralized the “RedHawks Cyber Research Tool by DL28” author attribution so both CLI and GUI share the same banner text. |
 | 2.2 | Enhancement | Added a `--token` CLI option so brute-force runs can supply JWTs non-interactively. |
 | 2.2 | Enhancement | Ignores blank secrets and trims whitespace once to speed up brute-force wordlists. |
 | 2.1 | Enhancement | Brute-force mode now auto-detects the JWT header’s HMAC algorithm and falls back to common HS variants when the header is silent. |
